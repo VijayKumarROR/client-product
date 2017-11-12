@@ -11,12 +11,12 @@ gem 'kaminari', require: false
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails'
 
-group :developement do
+group :development do
   gem 'will_paginate'
 	gem 'sqlite3'
 end
 
-group :test do
+group :production do
 	gem 'pg'
 end
 # Use SCSS for stylesheets

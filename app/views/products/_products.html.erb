@@ -1,0 +1,35 @@
+<table class="table">
+	<thead>
+		<tr>
+		   <th>SI No</th>
+			<th>Projects</th>
+			<th>Username</th>
+			<th>Category Name</th>
+		</tr>
+	</thead>
+	<%count = 0%>
+	<tbody>
+	<% @products.each do |p|%>
+		<tr>
+		    <td><%= count += 1%></td>
+			<td><%= p.name%></td>
+			<td><%= p.user.email%></td>
+			<td><%= p.category.name%></td>
+		</tr>
+	</tbody>
+	<%end%>
+</table>
+
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @products, :container => false %>
+  </div>
+
+
+<br />
+<% if user_signed_in? %>
+	<b> User:</b><%= current_user.email %>
+	<b><%= link_to 'Log out', destroy_user_session_path, method: :delete %></b>
+<%end%>

@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="register">
+      <div class="header">
+        <h2>Log in</h2>
+        </div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+
+<div class="sign">
+    <%= link_to 'Sign Up', new_user_registration_path %>
+</div>
+<%#= render "users/shared/links" %>
+<style type="text/css">
+  body
+  {
+    background-color: #f4c542;
+  }
+  .header
+  {
+    margin-left: 190px;
+  }
+  .register
+  {
+    border: ridge 10px black;
+    width: 450px;
+    padding: 100px;
+    margin-top: 70px;
+    margin-left: 420px;
+  }
+  .sign
+  {
+   margin-left: 727px;
+   font-size: 20px;
+  }
+  .form-group
+  {
+    color: black;
+    margin-left: 140px;
+    padding: 15px;
+  }
+  .form-group label
+  {
+    font-size: 20px;
+  }
+  .actions
+  {
+    margin-left: 190px;
+    padding: 10px;  
+  }
+</style>

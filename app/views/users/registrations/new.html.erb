@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="register">
+      <div class="header">
+        <h2 class="head" style="font-size: 25px;">Sign up</h2>
+     </div>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+
+<div class="log">
+   <%= link_to 'Log In', new_user_session_path %>
+</div>
+
+<%#= render "users/shared/links" %>
+
+<style type="text/css">
+  body
+  {
+    background-color: #f4c542;
+  }
+  .log
+  {
+    font-size: 30px;
+    margin-left: 660px;
+  }
+  .header
+  {
+    margin-left: 190px;
+  }
+  .register
+  {
+    border: ridge 10px black;
+    width: 450px;
+    padding: 100px;
+    margin-top: 70px;
+    margin-left: 366px;
+  }
+  .form-group
+  {
+    color: black;
+    margin-left: 140px;
+    padding: 15px;
+  }
+  .form-group label
+  {
+    font-size: 20px;
+  }
+  .actions
+  {
+    margin-left: 180px;
+    padding: 10px;  
+  }
+  
+</style>

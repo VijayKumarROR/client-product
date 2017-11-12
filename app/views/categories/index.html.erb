@@ -1,0 +1,32 @@
+<div class="table">
+
+ <table>
+ 	<thead>
+ 		<tr>
+		 	<th>Name</th>
+		 	<th>About</th>
+ 		</tr>
+ 	</thead>
+ <tbody>
+ <% @categories.each do |c| %>
+ 	<tr>
+	 	<td><%= c.name %></td>
+	 	<td><%= c.about %></td>
+ 	</tr>
+ <%end%>
+ </tbody>
+</table>
+</div>
+<br />
+
+<% if user_signed_in? %>
+	<%= current_user.email %><br />
+	<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<% end %>
+
+<style type="text/css">
+	body
+	{
+		background-color: green;
+	}
+</style>

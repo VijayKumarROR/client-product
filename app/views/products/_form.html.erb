@@ -1,0 +1,72 @@
+<div class="jumbotron text-center">
+<h1 align="center">New Projects</h1>
+</div>
+
+<div class="container">
+ <%= form_for Product.new do |c| %>
+	
+  <div class="label-field">
+  	<%= c.label :user_id %>
+  </div>
+
+  <div class="text-field">
+  	<%#= c.collection_select(:product, :user_id, User.all, :id, :email)%>
+  	<%#= c.select :user_id, User.all.collect {|x| [x.email, x.id]}, :prompt => "Please Select" %>
+    <%= c.select :user_id, User.order("email ASC").map { |p| [p.email, p.id]}, :prompt => "Please Select User" %>
+
+  </div>
+
+  <div class="label-field">
+  	<%= c.label :category_id %>
+  </div>
+
+  <div class="text-field">
+  <%= c.select :category_id, Category.order("name ASC").map {|x| [x.name, x.id]}, :prompt => "Please Select"%>
+  <%#= c.select :user_id, User.order("email ASC").map { |p| [p.email, p.id]}, :prompt => "Please Select User" %>
+
+  	<%#= c.collection_select(:product, :cat_id, Category.all, :id, :name)%>
+  </div>
+
+  <div class="label-field">
+  	<%= c.label :name %>
+  </div>
+  <div class="text-field">
+  	<%= c.text_field :name, :required => true %> </br>
+	</div>
+
+	<div class="label-field">
+		<%= c.label :cost %>
+	</div>
+  <div class="text-field">
+		<%= c.text_field :cost, :required => true %>
+	</div>
+
+  <div class="action">
+  	<%= c.submit "Save Products"%>
+  </div>
+  
+  <%end%>
+</div>
+
+<style type="text/css">
+  body
+  {
+    background-color: #ce14b8; 
+  }
+  .container
+  {
+    width: 600px;
+    text-align: center;
+    margin-left: 300px;
+  }
+  .text-field
+  {
+    margin-top: 0px;
+    width: 1000px;
+  }
+  .label-field
+  {
+    padding: 20px;
+    width: 500px;
+  }
+</style>

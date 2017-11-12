@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  #root 'categories#new'
-
+  
+  resources :products
   resources :categories
   devise_for :users
   devise_scope :user do

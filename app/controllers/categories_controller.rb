@@ -12,7 +12,7 @@ before_filter :authenticate_user!
     @category = Category.new(category_params)
        if @category.save
         flash[:notice] = "Category Saved Successfully"
-        redirect_to :controller => "categories", :action => "index"
+        redirect_to :controller => "products", :action => "new"
        else
         flash[:notice] = "Error"
         render "new"
